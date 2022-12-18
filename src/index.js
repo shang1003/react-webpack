@@ -8,32 +8,30 @@
  */
 import React from "react";
 import ReactDOM from "react-dom/client";
-import './assets/css/index.less'
-import './assets/css/base.css'
-import ImageTest from "./component/ImageTest.jsx";
+import "./assets/css/index.less";
+import "./assets/css/base.css";
+// import ImageTest from "./component/ImageTest.jsx";
 import DragDrop from "./component/DragDrop.jsx";
-import { DndProvider, useDrag, useDrop } from 'react-dnd';
-import { HTML5Backend } from 'react-dnd-html5-backend';
-import Draggable from 'react-draggable'; // The default
-
-const root = ReactDOM.createRoot(document.getElementById('root'));
-const App = () => {
-  return (
-    <div>
-      {/* <h1 className="test">less样式</h1>
+import { DndProvider } from "react-dnd";
+// import {  useDrag, useDrop } from "react-dnd";
+import { HTML5Backend } from "react-dnd-html5-backend";
+// import Draggable from "react-draggable"; // The default
+const root = ReactDOM.createRoot(document.getElementById("root")),
+  App = () => {
+    return (
+      <div>
+        {/* <h1 className="test">less样式</h1>
       <h1 className="css">css样式</h1>
       <h2 >Welcome to your First React App..毕尚!</h2> */}
-      {/* <Draggable> */}
-<div>
-{/* <ImageTest/> */}
-<DndProvider backend={HTML5Backend}>
-<DragDrop/>
-</DndProvider>
-
-</div>
-  
-    </div>
-  );
-};
+        {/* <Draggable> */}
+        <div>
+          {/* <ImageTest/> */}
+          <DndProvider backend={HTML5Backend}>
+            <DragDrop />
+          </DndProvider>
+        </div>
+      </div>
+    );
+  };
 
 root.render(<App />, document.getElementById("root"));
