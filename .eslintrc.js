@@ -130,7 +130,7 @@ module.exports = {
     "comma-dangle": [0, "never"], // 对象字面量项尾不能有逗号
     "comma-spacing": 0, // 逗号前后的空格
     "comma-style": [0, "last"], // 逗号风格，换行时在行首还是行尾
-    complexity: [0, 00], // 循环复杂度
+    complexity: [0, 0], // 循环复杂度
     "computed-property-spacing": [0, "never"], // 是否允许计算后的键名什么的
     "consistent-return": 0, // return 后面是否允许省略
     "consistent-this": [0, "that"], // this别名
@@ -154,7 +154,7 @@ module.exports = {
     "max-len": [0, 80, 4], // 字符串最大长度
     "max-nested-callbacks": [0, 0], // 回调嵌套深度
     "max-params": [0, 3], // 函数最多只能有3个参数
-    "max-statements": [0, 00], // 函数内最多有几个声明
+    "max-statements": [0, 0], // 函数内最多有几个声明
     "new-cap": 0, // 函数名首行大写必须使用new方式调用，首行小写必须用不带new方式调用
     "new-parens": 0, // new时必须加小括号
     "newline-after-var": 0, // 变量声明后是否需要空一行
@@ -175,7 +175,7 @@ module.exports = {
     "space-after-keywords": [0, "always"], // 关键字后面是否要空一格
     "space-before-blocks": [0, "always"], // 不以新行开始的块{前面要不要有空格
     "space-before-function-paren": [0, "always"], // 函数定义时括号前面要不要有空格
-    "space-in-parens": [0, "never"], // 小括号里面要不要有空格
+    // "space-in-parens": [0, "never"], // 小括号里面要不要有空格
     "space-infix-ops": 0, // 中缀操作符周围要不要有空格
     // "space-return-throw-case": 0, //return throw case后面要不要加空格
     "space-unary-ops": [0, { words: true, nonwords: false }], // 一元运算符的前/后要不要加空格
