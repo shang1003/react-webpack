@@ -14,9 +14,14 @@ module.exports = {
   },
   extends: ["eslint:recommended", "plugin:react/recommended"],
   overrides: [],
+  "parser": "babel-eslint",
   parserOptions: {
-    ecmaVersion: "latest",
     sourceType: "module",
+    "ecmaFeatures": {
+      "jsx": true,
+      "modules": true,
+      "legacyDecorators": true//装饰器
+    }
   },
   plugins: ["react"],
   rules: {
