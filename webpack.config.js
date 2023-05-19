@@ -2,14 +2,16 @@ const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 module.exports = {
-  entry: "./src/index.js",
+  entry: "./src/core/index.js",
   output: {
     path: path.join(__dirname, "./dist"),
+    publicPath: '/',
     filename: "bundle.js",
   },
   devServer: {
     host: "localhost",
     port: 8088,
+    historyApiFallback: true,//history router
     static: {
       directory: path.join(__dirname, "/dist/index.html"),
     },
@@ -23,11 +25,30 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        use: ["style-loader", "css-loader"],
+        use: ["style-loader", {
+          loader: "css-loader",
+          options: {
+            modules: true//导出 css模块
+          },
+        }],
       },
       {
-        test: /\.less$/,
-        use: ["style-loader", "css-loader", "less-loader"],
+        test: /\.(less)$/,
+        exclude: /node_modules/,
+        use: [
+          {
+            loader: 'style-loader', // creates style nodes from JS strings
+          },
+          {
+            loader: 'css-loader',
+            options: {
+              // modules: true//导出 css模块
+            },
+          },
+          {
+            loader: 'less-loader', // compiles Less to CSS
+          }
+        ],
       },
       {
         test: /\.(png|jpg)/,
@@ -47,6 +68,10 @@ module.exports = {
   },
   resolve: {
     extensions: [".js", ".jsx", ".json", ".tsx", ".ts"], //表示这几个文件的后缀名可以省略不写
+    alias: {
+      page: __dirname + '/src/page',
+      src: __dirname + '/src',
+    }
   },
   plugins: [
     new HtmlWebpackPlugin({
