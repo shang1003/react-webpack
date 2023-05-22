@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "experimentalDecorators":true,//启用装饰器
+    "jsx":"react",
+    "baseUrl": "./src",//基础路径
+    "paths": {//指定要相对于 baseUrl 选项计算的路径映射
+      "@/*": ["*"],
+      "components/*": ["components/*"],
+      "pages/*": ["pages/*"],
+      "layouts/*": ["layouts/*"],
+      "assets/*": ["assets/*"],
+      "utils/*": ["utils/*"]
+    },
+    "allowSyntheticDefaultImports": true//允许从没有默认导出的模块中进行默认导入。这不会影响代码发出，只会影响类型检查
+  },
+  "exclude": ["node_modules", "dist"]// exclude 和 include 中的文件路径是相对于 jsconfig.json 位置的
+}

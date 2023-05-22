@@ -78,9 +78,12 @@ module.exports = {
   resolve: {
     extensions: [".js", ".jsx", ".json", ".tsx", ".ts"], //表示这几个文件的后缀名可以省略不写
     alias: {
-      page: __dirname + "/src/page",
-      src: __dirname + "/src",
+      pages: __dirname + "/src/pages",
+      "@": __dirname + "/src",
       styles: __dirname + "/src/styles",
+      layouts: __dirname + "/src/layouts",
+      utils: __dirname + "/src/utils",
+      components: __dirname + "/src/components",
     },
   },
   plugins: [
