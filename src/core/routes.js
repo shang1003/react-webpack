@@ -1,9 +1,9 @@
-import BlankLayout from '../layouts/Blank';
-import Login from '../page/auth/App';
-import {E404} from '../page/404';
-import { lazy } from 'react';
+import BlankLayout from "layouts/Blank";
+import Login from "pages/auth/App";
+import { E404 } from "pages/404";
+import { lazy } from "react";
 // const Basic = import('../basic/App')
-import Basic from '../basic/App'
+import Basic from "@/basic/App";
 
 export default [
   {
@@ -14,15 +14,15 @@ export default [
       //   redirect: { from: '/', to: '/base/overview', exact: true },
       // },
       {
-        path: '/login',
+        path: "/login",
         component: Login,
       },
       {
-        path: '/',
+        path: "/",
         component: Basic,
       },
       {
-        path: '*',
+        path: "*",
         component: E404,
       },
     ],

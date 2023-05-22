@@ -2,9 +2,9 @@ import React, { useRef } from "react";
 import styles from "./index.less";
 import { Form, Input, Button } from "antd";
 import { UserOutlined, LockOutlined } from "@ant-design/icons";
-import rootStore from "src/store/mobx/rootStore";
-import { login } from "src/client/login";
-import Notify from "../../../../component/notify";
+import rootStore from "@/store/mobx/rootStore";
+import { login } from "@/client/login";
+import Notify from "components/notify";
 export const Login = () => {
   const formRef = useRef();
   const onsubmit = () => {
