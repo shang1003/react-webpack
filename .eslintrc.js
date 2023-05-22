@@ -14,14 +14,14 @@ module.exports = {
   },
   extends: ["eslint:recommended", "plugin:react/recommended"],
   overrides: [],
-  "parser": "babel-eslint",
+  parser: "babel-eslint",
   parserOptions: {
     sourceType: "module",
-    "ecmaFeatures": {
-      "jsx": true,
-      "modules": true,
-      "legacyDecorators": true//装饰器
-    }
+    ecmaFeatures: {
+      jsx: true,
+      modules: true,
+      legacyDecorators: true, //装饰器
+    },
   },
   plugins: ["react"],
   rules: {
@@ -190,6 +190,7 @@ module.exports = {
     "valid-typeof": 0, // 必须使用合法的typeof的值
     "vars-on-top": 0, // var必须放在作用域顶部
     "wrap-iife": [0, "inside"], // 立即执行函数表达式的小括号风格
-    "wrap-regex": 0, // 正则表达式字面量用小括号包起来
+    "wrap-regex": 0, // 正则表达式字面量用小括号包起来,
+    "react/prop-types": 0,
   },
 };
