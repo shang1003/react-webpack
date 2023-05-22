@@ -1,19 +1,25 @@
 const path = require("path");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
-
 module.exports = {
   entry: "./src/core/index.js",
   output: {
     path: path.join(__dirname, "./dist"),
-    publicPath: '/',
+    publicPath: "/",
     filename: "bundle.js",
   },
   devServer: {
     host: "localhost",
     port: 8088,
-    historyApiFallback: true,//history router
+    historyApiFallback: true, //history router
     static: {
       directory: path.join(__dirname, "/dist/index.html"),
+    },
+    proxy: {
+      //本地代理
+      "/api": {
+        target: "http://localhost:5000",
+        pathRewrite: { "^/api": "" },
+      },
     },
   },
   module: {
@@ -25,29 +31,32 @@ module.exports = {
       },
       {
         test: /\.css$/,
-        use: ["style-loader", {
-          loader: "css-loader",
-          options: {
-            modules: true//导出 css模块
+        use: [
+          "style-loader",
+          {
+            loader: "css-loader",
+            options: {
+              modules: true, //导出 css模块
+            },
           },
-        }],
+        ],
       },
       {
         test: /\.(less)$/,
         exclude: /node_modules/,
         use: [
           {
-            loader: 'style-loader', // creates style nodes from JS strings
+            loader: "style-loader", // creates style nodes from JS strings
           },
           {
-            loader: 'css-loader',
+            loader: "css-loader",
             options: {
-              // modules: true//导出 css模块
+              modules: true, //导出 css模块
             },
           },
           {
-            loader: 'less-loader', // compiles Less to CSS
-          }
+            loader: "less-loader", // compiles Less to CSS
+          },
         ],
       },
       {
@@ -69,9 +78,10 @@ module.exports = {
   resolve: {
     extensions: [".js", ".jsx", ".json", ".tsx", ".ts"], //表示这几个文件的后缀名可以省略不写
     alias: {
-      page: __dirname + '/src/page',
-      src: __dirname + '/src',
-    }
+      page: __dirname + "/src/page",
+      src: __dirname + "/src",
+      styles: __dirname + "/src/styles",
+    },
   },
   plugins: [
     new HtmlWebpackPlugin({
