@@ -4,12 +4,13 @@ import { LayoutMenu } from './Menu'
 import renderMenu from '../menu'
 import { MenuFoldOutlined, MenuUnfoldOutlined } from '@ant-design/icons';;
 import renderRoutes from '../../utils/RouterConfig'
+import { inject } from 'mobx-react';
 const { Header, Sider, Content } = Layout;
 const headerStyle = {
   textAlign: 'center',
   color: '#fff',
   height: 64,
-  paddingInline: 50,
+  paddingLeft:"0",
   lineHeight: '64px',
   backgroundColor: '#FFF',
 };
@@ -18,7 +19,8 @@ const contentStyle = {
   backgroundColor:"#fff"
 }
 
-const App = ({ routes }) => {
+const App = (props) => {
+  const {routes,location:{pathname}}=props
   const [collapsed, setCollapsed] = useState(false)
   const renderTrigger = () => {
     return <Button
@@ -43,7 +45,7 @@ const App = ({ routes }) => {
   >
     <Layout>
       <Sider trigger={null} collapsible collapsed={collapsed} >
-        <LayoutMenu menu={renderMenu()} collapsed={collapsed} />
+        <LayoutMenu pathname={pathname} menu={renderMenu()} collapsed={collapsed} />
       </Sider>
       <Layout>
         <Header style={headerStyle}>
@@ -53,12 +55,13 @@ const App = ({ routes }) => {
         <Suspense fallback={"加载中。。。。。"}>
         {renderRoutes(routes)}
         </Suspense>
-      
-
-
         </Content>
       </Layout>
     </Layout>
   </Space>
 }
-export default App;
+
+//inject 函数组件 使用provider 中提供的store {rootStore:....}
+export default inject((store)=>{
+  return store
+})(App);
