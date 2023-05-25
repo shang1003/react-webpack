@@ -14,7 +14,7 @@ export const Login = () => {
         login(values)
           .then(() => {
            Notify.success("成功",'登录成功')
-            rootStore.routing.push("/overview/base");
+            rootStore.routing.push("/base/overview");
           })
           .catch((res) => {
             formRef.current.resetFields()

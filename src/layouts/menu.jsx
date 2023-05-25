@@ -1,12 +1,7 @@
 import React from 'react';
 import {
   DesktopOutlined,
-  DatabaseOutlined,
   HomeOutlined,
-  DatabaseFilled,
-  AppstoreOutlined,
-  SwitcherOutlined,
-  ContainerOutlined,
 } from '@ant-design/icons';
 
 const renderMenu = () => {

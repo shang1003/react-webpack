@@ -1,4 +1,3 @@
-import { lazy } from "react";
 import BaseLayout from "layouts/base/index";
 import Test from "pages/test1/App";
 import OverView from "pages/overview/App";
@@ -14,8 +13,6 @@ export default [
       { path: `/base`, component: OverView },
       { path: `/test`, component: Test },
       { path: `/login`, component: Login },
-      { path: `/`, redirect: "/base/overview", exact: true },
-
       { path: "*", component: E404 },
     ],
   },

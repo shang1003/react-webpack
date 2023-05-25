@@ -10,13 +10,16 @@ app.listen(port, () => {
 app.use(express.json());
 //使用指定的回调函数将HTTP GET 请求路由到指定路径。
 app.get("/useinfo", (req, res) => {
-  res.send({ name: "bishang", paddword: "13616" });
+  const data = [];
+  data.length = 10000;
+  res.send(data.fill(10000));
 });
 //使用指定的回调函数将HTTP GET 请求路由到指定路径。
 app.post("/login", (req, res) => {
   const { username, password } = req.body;
-  if (username === "bishang" && password === "13616") {
-    setTimeout(() => res.send({ status: 200 }), 1000);
+  if (username === "zs" && password === "13616") {
+    res.setHeader("Set-Cookie", "userName=zs; password=13616");
+    res.send({ status: 200 });
   } else {
     res.status(400);
     res.send("用户名或密码错误");

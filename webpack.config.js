@@ -90,6 +90,7 @@ module.exports = {
     new HtmlWebpackPlugin({
       //以什么模板打包成html
       template: path.join(__dirname, "./src/index.html"),
+      title: "BS", //标题
     }),
   ],
 };
