@@ -1,8 +1,9 @@
 import React, { useContext, createContext } from 'react'
 const AdminContext = createContext()
-export const useAdminInfo = () => useContext(RouterContext)
+export const userAdminInfo = () => useContext(AdminContext)
 export const AdminInfoContextProvider = ({ children }) => {
-    return <AdminContext.Provider value={{userInfo:{name:"bishang"}}}>
+  const userInfo=JSON.parse(localStorage.getItem("userinfo"))
+    return <AdminContext.Provider value={{userInfo}}>
         {children}
     </AdminContext.Provider>
 }

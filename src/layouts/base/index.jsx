@@ -6,6 +6,7 @@ import { MenuFoldOutlined, MenuUnfoldOutlined } from "@ant-design/icons";
 import renderRoutes from "../../utils/RouterConfig";
 import { inject } from "mobx-react";
 import Avatar from "./avatar";
+import PageLoading from 'components/PageLoading';
 const { Header, Sider, Content } = Layout;
 const headerStyle = {
  zIndex:999,
@@ -62,7 +63,7 @@ const App = (props) => {
               <Avatar/>
           </Header>
           <Content style={contentStyle}>
-            <Suspense fallback={"加载中。。。。。"}>
+            <Suspense fallback={<PageLoading/>}>
               {renderRoutes(routes)}
             </Suspense>
           </Content>

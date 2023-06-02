@@ -8,10 +8,13 @@ import App from "./App";
 const browserHistory = createBrowserHistory();
 const history = syncHistoryWithStore(browserHistory, store.routing);
 // get
+const isLogin = !!JSON.parse(localStorage.getItem("userinfo"));
 const render = (children) => {
   const currentPath = window.location.pathname;
-  if (currentPath.indexOf("/login") < 0) {
-    history.push(currentPath);
+  if (currentPath.indexOf("/login") > -1 && isLogin) {
+    history.push("/");
+  } else if (!isLogin) {
+    history.push("/login");
   }
   ReactDOM.render(children, document.getElementById("root"));
 };

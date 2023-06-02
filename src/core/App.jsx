@@ -6,7 +6,7 @@ import { Provider } from "mobx-react";
 import { Router } from "react-router";
 import renderRoutes from "utils/RouterConfig";
 import routes from "./routes";
-import { AdminInfoContextProvider } from "@/context/router/Router.jsx";
+import { AdminInfoContextProvider } from "@/context/admin/AdminInfoContextProvider.jsx";
 const App = function ({ rootStore, history }) {
   return (
     <Router history={history}>

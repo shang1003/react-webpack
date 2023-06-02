@@ -9,7 +9,7 @@ app.listen(port, () => {
 //处理body
 app.use(express.json());
 //使用指定的回调函数将HTTP GET 请求路由到指定路径。
-app.get("/useinfo", (req, res) => {
+app.get("/userinfo", (req, res) => {
   const data = [];
   data.length = 10000;
   res.send(data.fill(10000));
@@ -19,7 +19,13 @@ app.post("/login", (req, res) => {
   const { username, password } = req.body;
   if (username === "zs" && password === "13616") {
     res.setHeader("Set-Cookie", "userName=zs; password=13616");
-    res.send({ status: 200 });
+    res.send({
+      status: 200,
+      data: {
+        username,
+        password,
+      },
+    });
   } else {
     res.status(400);
     res.send("用户名或密码错误");

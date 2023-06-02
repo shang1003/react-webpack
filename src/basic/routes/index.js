@@ -1,8 +1,9 @@
+import { lazy } from "react";
 import BaseLayout from "layouts/base/index";
-import Test from "pages/test1/App";
-import OverView from "pages/overview/App";
-import Login from "pages/auth/App";
-import { E404 } from "pages/404";
+const Test = lazy(() => import("pages/test1/App"));
+const OverView = lazy(() => import("pages/overview/App"));
+const Login = lazy(() => import("pages/auth/App"));
+const E404 = lazy(() => import("pages/404"));
 const PATH = "/";
 
 export default [

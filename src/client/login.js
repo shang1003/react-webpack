@@ -10,6 +10,6 @@ export const login = (data) => {
 export const getUseInfo = () => {
   return request.makeRequest({
     method: "get",
-    url: "/useinfo",
+    url: "/userinfo",
   });
 };

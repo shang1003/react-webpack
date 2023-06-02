@@ -12,7 +12,9 @@ export const Login = () => {
       .validateFields()
       .then((values) => {
         login(values)
-          .then(() => {
+          .then(({data}) => {
+            console.log(values,'values');
+            localStorage.setItem("userinfo",JSON.stringify(data))
            Notify.success("成功",'登录成功')
             rootStore.routing.push("/base/overview");
           })
